@@ -6,6 +6,7 @@
 gsファイルの名前はなんでもok
 
 change_jsonの実行結果
+
     [
       {flg=true, name=google, id=A001, url=https://www.google.com/},
       {flg=true, name=yahoo, id=A002, url=https://www.yahoo.co.jp/},
@@ -13,11 +14,13 @@ change_jsonの実行結果
     ]
 
 change_json_2の実行結果
+
     [
       {A001={flg=true, name=google, url=https://www.google.com/}},
       {A002={flg=true, name=yahoo, url=https://www.yahoo.co.jp/}},
       {B001={flg=false, name=aaaa, url=https://www.aaaaaa}}
     ]
+
 
 参考サイト：https://kuwk.jp/blog/spreadsheet2json/
 
