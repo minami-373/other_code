@@ -40,54 +40,22 @@ function getData() {
   //JSON用のkey
   var keys = [];
 
-//データ取得
-function getData() {
-  //データ取得するシート（現在開いているシートを指定）
-  var sheet = SpreadsheetApp.getActiveSheet();
-
-  //行（横軸）と列（縦軸）の最大数を取得
-  var maxRow = sheet.getLastRow();
-  var maxColumn = sheet.getLastColumn();
-
-  //JSON用のkey
-  var keys = [];
-
   //データ格納配列
   var data = {};
 
-  //1行目のkeyの名前取得 keyの行を変更したい場合はxと引数を変更
-  //JSON用のラベルは2行目で指定しているため【getRange】の第1引数は【1】
-  for (var x = 2; x <= maxColumn; x++) {
-    keys.push(sheet.getRange(2, x).getValue());
-  }
-
-//データ取得
-function getData() {
-  //データ取得するシート（現在開いているシートを指定）
-  var sheet = SpreadsheetApp.getActiveSheet();
-
-  //行（横軸）と列（縦軸）の最大数を取得
-  var maxRow = sheet.getLastRow();
-  var maxColumn = sheet.getLastColumn();
-
-  //JSON用のkey
-  var keys = [];
-
-  //データ格納配列
-  var data = {};
-
+  // ★ここから
   //1行目のkeyの名前取得 keyの行を変更したい場合はxと引数を変更
   //JSON用のラベルは2行目で指定しているため【getRange】の第1引数は【1】
   for (var x = 1; x <= maxColumn; x++) {
     keys.push(sheet.getRange(1, x).getValue());
   }
   
-  //データの取得
+  //データの取得 
   //実際のデータが2行目からなので【y = 2】から開始
   for (var y = 2; y <= maxRow; y++) {
     var json = {};
     
-    for (var x = 1; x <= maxColumn; x++) {
+    for (var x = 2; x <= maxColumn; x++) {
       json[keys[x-1]] = sheet.getRange(y, x).getValue();
     }
     //データ格納
@@ -97,7 +65,7 @@ function getData() {
   }
   Logger.log(data);
   //整形してテキストにします
-  return JSON.stringify(data, null, '\t');  
+  return JSON.stringify(data, null, '\t');  // ★ここまで
 }
 
 
